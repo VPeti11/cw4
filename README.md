@@ -6,7 +6,9 @@ It's not flashy. It's not fancy. It just works (usually). Designed with specific
 
 ## Devnote
 
-Don’t ask why this exists. I needed it. It made sense in my head. And dont ask about the name. Its based on an old project. And its not CW-I. That was based on the same old project simply called CW 2. And that was a version of the original CW thats turning 8 years old on the day i release this (20/07/2025). If you want to find that than good luck since its lost media. I remember using it and later making CW 2 since i couldnt find the original. And the date was when i first used it. I know because i have written it down.
+Don’t ask why this exists. I needed it. It made sense in my head. And dont ask about the name. Its based on an old project. And its not CW-I. That was based on the same old project simply called CW 2. And that was a version of the original CW thats turning 8 years old on the day i release this (20/07/2025). If you want to find that than good luck since its lost media. I remember using it and later making a CW 2 version since i couldnt find the original. Then that was lost. And the date was when i first used it. I know because i have written it down.
+
+Want to read more? Click [here](story.md)
 
 ---
 
