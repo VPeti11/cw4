@@ -159,23 +159,33 @@ func ShowWelcomeMessage() {
 }
 
 func main() {
-	// Clone repo
+	if err := CheckLinuxPlatform(); err != nil {
+		log.Fatalf("Unsupported platform: %v", err)
+	}
+
+	ShowWelcomeMessage()
+
+	pkgManager := DetectPackageManager()
+	if pkgManager == "" {
+		log.Fatalf("No supported package manager found.")
+	}
+
+	fmt.Printf("Using package manager: %s\n", pkgManager)
+	if err := InstallDependencies(pkgManager); err != nil {
+		log.Fatalf("Failed to install dependencies: %v", err)
+	}
+
+	fmt.Println("Cloning git repository...")
 	if err := CloneGitRepo(GitRepoURL); err != nil {
 		log.Fatalf("Failed to clone repo: %v", err)
 	}
 
-	// Change into cloned directory
 	if err := ChangeDirectory(LocalRepoDir); err != nil {
 		log.Fatalf("Failed to change directory: %v", err)
 	}
 
-	// Build main.go into /usr/bin/ProgramName
-	outPath := filepath.Join("/usr/bin", ProgramName)
-	cmd := exec.Command("go", "build", "-o", outPath, "main.go")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	if err := cmd.Run(); err != nil {
-		log.Fatalf("Failed to build binary: %v", err)
+	fmt.Println("Building Go binary...")
+	if err := InstallGoBinary("main.go", ProgramName); err != nil {
+		log.Fatalf("Failed to build Go binary: %v", err)
 	}
 }
